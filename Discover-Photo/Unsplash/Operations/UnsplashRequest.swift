@@ -14,25 +14,25 @@ class UnsplashRequest {
     // API Parameter Abstraction
     // https://github.com/Alamofire/Alamofire/blob/master/Documentation/AdvancedUsage.md#api-parameter-abstraction
     enum Router: URLRequestConvertible {
-        case photos(page: Int)
-        case searchPhotos(query: String, page: Int)
+        case photos(page: Int, perPage: Int)
+        case searchPhotos(query: String, page: Int, perPage: Int)
         
         static let baseURLString = Constants.API.URLBase
-        static let perPage = 10 // Number of items per page. (Optional; default: 10)
+        static let perPage = 30 // Number of items per page
         
         // MARK: URLRequestConvertible
         
         func asURLRequest() throws -> URLRequest {
             let result: (path: String, parameters: Parameters) = {
                 switch self {
-                case .photos(let page):
+                case .photos(let page, let perPage):
                     // List photos API
                     // https://unsplash.com/documentation#list-photos
-                    return ("/photos", ["page": page])
-                case .searchPhotos(let query, let page):
+                    return ("/photos", ["page": page, "per_page": perPage])
+                case .searchPhotos(let query, let page, let perPage):
                     // Search API
                     // https://unsplash.com/documentation#search-photos
-                    return ("/search/photos", ["query": query, "page": page])
+                    return ("/search/photos", ["query": query, "page": page, "per_page": perPage])
                 }
             }()
             

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		766CE953229EBAAD00E56BA4 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */; };
+		766CE955229EC4A100E56BA4 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */; };
+		766CE956229EDECC00E56BA4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769A86C5229D73AB00F77B71 /* Alamofire.framework */; };
+		766CE958229EDFD200E56BA4 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766CE957229EDFD200E56BA4 /* AlamofireImage.framework */; };
 		769A86A9229D68AF00F77B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86A8229D68AF00F77B71 /* AppDelegate.swift */; };
 		769A86AB229D68AF00F77B71 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86AA229D68AF00F77B71 /* FirstViewController.swift */; };
 		769A86AD229D68AF00F77B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86AC229D68AF00F77B71 /* SecondViewController.swift */; };
@@ -27,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
+		766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		766CE957229EDFD200E56BA4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		769A86A5229D68AF00F77B71 /* Discover-Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discover-Photo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		769A86A8229D68AF00F77B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		769A86AA229D68AF00F77B71 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -54,12 +61,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766CE958229EDFD200E56BA4 /* AlamofireImage.framework in Frameworks */,
+				766CE956229EDECC00E56BA4 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		766CE951229EB69200E56BA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */,
+				766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		769A869C229D68AF00F77B71 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +107,7 @@
 				769A86B6229D68B100F77B71 /* Info.plist */,
 				769A86BC229D69B400F77B71 /* Constants.swift */,
 				769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */,
+				766CE951229EB69200E56BA4 /* Views */,
 				769A86CC229D79DF00F77B71 /* Unsplash */,
 			);
 			path = "Discover-Photo";
@@ -112,6 +131,7 @@
 		769A86C2229D72C100F77B71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				766CE957229EDFD200E56BA4 /* AlamofireImage.framework */,
 				769A86C5229D73AB00F77B71 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -211,12 +231,14 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AlamofireImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -238,10 +260,12 @@
 				769A86C0229D6F5500F77B71 /* HomeCollectionViewController.swift in Sources */,
 				769A86F9229E79CE00F77B71 /* UnsplashPhoto.swift in Sources */,
 				769A86FA229E79CE00F77B71 /* ProfileImage.swift in Sources */,
+				766CE955229EC4A100E56BA4 /* PhotoCollectionViewCell.swift in Sources */,
 				769A86F6229E79CE00F77B71 /* SponsoredByLinks.swift in Sources */,
 				769A86F7229E79CE00F77B71 /* Urls.swift in Sources */,
 				769A86BD229D69B400F77B71 /* Constants.swift in Sources */,
 				769A86F5229E79CE00F77B71 /* Sponsorship.swift in Sources */,
+				766CE953229EBAAD00E56BA4 /* WaterfallLayout.swift in Sources */,
 				769A86F4229E79CE00F77B71 /* UnsplashPhotoLinks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

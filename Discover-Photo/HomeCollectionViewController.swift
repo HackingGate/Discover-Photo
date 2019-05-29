@@ -8,8 +8,7 @@
 
 import UIKit
 import Alamofire
-
-private let reuseIdentifier = "Cell"
+import AlamofireImage
 
 class HomeCollectionViewController: UICollectionViewController {
     
@@ -17,7 +16,10 @@ class HomeCollectionViewController: UICollectionViewController {
     var photos = UnsplashPhotos() {
         didSet {
             if photos.count % UnsplashRequest.Router.perPage == 0 {
-                nextPage = (photos.count - oldValue.count) / UnsplashRequest.Router.perPage
+                nextPage = photos.count / UnsplashRequest.Router.perPage + 1
+                print("old \(oldValue.count) new \(photos.count)  new nextPage \(nextPage)")
+            } else {
+                print("not change nextPage \(nextPage)")
             }
             reloadData()
         }
@@ -25,14 +27,13 @@ class HomeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        
+        if let layout = collectionViewLayout as? WaterfallLayout {
+            layout.delegate = self
+            layout.numberOfColumns = 2
+        } else {
+            print("Not WaterfallLayout")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,14 +45,15 @@ class HomeCollectionViewController: UICollectionViewController {
     // MARK: - Data
     
     func refresh() {
-        guard photos.count == 0 else { return }
+        guard photos.isEmpty else { return }
         fetchNextItems()
     }
     
     func fetchNextItems() {
-        Alamofire.request(UnsplashRequest.Router.photos(page: nextPage)).responseUnsplashPhotos { response in
+        print("Fetching page \(nextPage)")
+        Alamofire.request(UnsplashRequest.Router.photos(page: nextPage, perPage: UnsplashRequest.Router.perPage)).responseUnsplashPhotos { response in
             if let unsplashPhotos = response.result.value {
-                self.photos = unsplashPhotos
+                self.photos += unsplashPhotos
             } else if let error = response.error {
                 print("error -> \(error)")
             }
@@ -59,68 +61,67 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     func reloadData() {
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
+    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
-
+// MARK: UICollectionViewDataSource
+extension HomeCollectionViewController {
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-        cell.backgroundColor = .red
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseIdentifier, for: indexPath)
+        
+        let photo = photos[indexPath.item]
+        
+        if let photoCell = cell as? PhotoCollectionViewCell {
+            
+            Alamofire.request(photo.urls.small).responseImage { response in
+                if let image = response.result.value {
+                    photoCell.photoView.image = image
+                }
+            }
+            
+            photoCell.photoLabel.text = String(indexPath.item)
+        }
+        
         return cell
     }
+}
 
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+extension HomeCollectionViewController: WaterfallLayoutDelegate {
     
+    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
+        let photo = photos[indexPath.item]
+        let photoRatio = CGFloat(photo.height) / CGFloat(photo.width)
+        let cellWidth = collectionView.bounds.width / 2
+        let height = photoRatio * cellWidth
+        return height
     }
-    */
+    
+}
 
+// MARK: - UICollectionViewDelegate
+extension HomeCollectionViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let prefetchCount = 19
+        if indexPath.item == photos.count - prefetchCount {
+            fetchNextItems()
+            print("indexPath.item == \(indexPath.item), photos.count == \(photos.count), adding")
+        } else {
+            print("indexPath.item == \(indexPath.item), photos.count == \(photos.count), not adding")
+        }
+    }
+    
 }
