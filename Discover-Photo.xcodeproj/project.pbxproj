@@ -13,6 +13,17 @@
 		769A86B0229D68AF00F77B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A86AE229D68AF00F77B71 /* Main.storyboard */; };
 		769A86B2229D68B100F77B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 769A86B1229D68B100F77B71 /* Assets.xcassets */; };
 		769A86B5229D68B100F77B71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A86B3229D68B100F77B71 /* LaunchScreen.storyboard */; };
+		769A86BD229D69B400F77B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86BC229D69B400F77B71 /* Constants.swift */; };
+		769A86C0229D6F5500F77B71 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */; };
+		769A86D8229D7E5F00F77B71 /* UnsplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86D7229D7E5F00F77B71 /* UnsplashRequest.swift */; };
+		769A86F3229E79CE00F77B71 /* SponsoredBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86EB229E79CE00F77B71 /* SponsoredBy.swift */; };
+		769A86F4229E79CE00F77B71 /* UnsplashPhotoLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86EC229E79CE00F77B71 /* UnsplashPhotoLinks.swift */; };
+		769A86F5229E79CE00F77B71 /* Sponsorship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86ED229E79CE00F77B71 /* Sponsorship.swift */; };
+		769A86F6229E79CE00F77B71 /* SponsoredByLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86EE229E79CE00F77B71 /* SponsoredByLinks.swift */; };
+		769A86F7229E79CE00F77B71 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86EF229E79CE00F77B71 /* Urls.swift */; };
+		769A86F8229E79CE00F77B71 /* JSONSchemaSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86F0229E79CE00F77B71 /* JSONSchemaSupport.swift */; };
+		769A86F9229E79CE00F77B71 /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86F1229E79CE00F77B71 /* UnsplashPhoto.swift */; };
+		769A86FA229E79CE00F77B71 /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86F2229E79CE00F77B71 /* ProfileImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,18 @@
 		769A86B1229D68B100F77B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		769A86B4229D68B100F77B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		769A86B6229D68B100F77B71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		769A86BC229D69B400F77B71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		769A86C5229D73AB00F77B71 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		769A86D7229D7E5F00F77B71 /* UnsplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRequest.swift; sourceTree = "<group>"; };
+		769A86EB229E79CE00F77B71 /* SponsoredBy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsoredBy.swift; sourceTree = "<group>"; };
+		769A86EC229E79CE00F77B71 /* UnsplashPhotoLinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoLinks.swift; sourceTree = "<group>"; };
+		769A86ED229E79CE00F77B71 /* Sponsorship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsorship.swift; sourceTree = "<group>"; };
+		769A86EE229E79CE00F77B71 /* SponsoredByLinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsoredByLinks.swift; sourceTree = "<group>"; };
+		769A86EF229E79CE00F77B71 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		769A86F0229E79CE00F77B71 /* JSONSchemaSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSchemaSupport.swift; sourceTree = "<group>"; };
+		769A86F1229E79CE00F77B71 /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
+		769A86F2229E79CE00F77B71 /* ProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +65,7 @@
 			children = (
 				769A86A7229D68AF00F77B71 /* Discover-Photo */,
 				769A86A6229D68AF00F77B71 /* Products */,
+				769A86C2229D72C100F77B71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +87,51 @@
 				769A86B1229D68B100F77B71 /* Assets.xcassets */,
 				769A86B3229D68B100F77B71 /* LaunchScreen.storyboard */,
 				769A86B6229D68B100F77B71 /* Info.plist */,
+				769A86BC229D69B400F77B71 /* Constants.swift */,
+				769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */,
+				769A86CC229D79DF00F77B71 /* Unsplash */,
 			);
 			path = "Discover-Photo";
+			sourceTree = "<group>";
+		};
+		769A86C1229D700000F77B71 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				769A86F0229E79CE00F77B71 /* JSONSchemaSupport.swift */,
+				769A86F2229E79CE00F77B71 /* ProfileImage.swift */,
+				769A86EB229E79CE00F77B71 /* SponsoredBy.swift */,
+				769A86EE229E79CE00F77B71 /* SponsoredByLinks.swift */,
+				769A86ED229E79CE00F77B71 /* Sponsorship.swift */,
+				769A86F1229E79CE00F77B71 /* UnsplashPhoto.swift */,
+				769A86EC229E79CE00F77B71 /* UnsplashPhotoLinks.swift */,
+				769A86EF229E79CE00F77B71 /* Urls.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		769A86C2229D72C100F77B71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				769A86C5229D73AB00F77B71 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		769A86CC229D79DF00F77B71 /* Unsplash */ = {
+			isa = PBXGroup;
+			children = (
+				769A86D2229D7C8400F77B71 /* Operations */,
+				769A86C1229D700000F77B71 /* Models */,
+			);
+			path = Unsplash;
+			sourceTree = "<group>";
+		};
+		769A86D2229D7C8400F77B71 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				769A86D7229D7E5F00F77B71 /* UnsplashRequest.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +144,7 @@
 				769A86A1229D68AF00F77B71 /* Sources */,
 				769A86A2229D68AF00F77B71 /* Frameworks */,
 				769A86A3229D68AF00F77B71 /* Resources */,
+				769A86C7229D73BD00F77B71 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -133,14 +201,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		769A86C7229D73BD00F77B71 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		769A86A1229D68AF00F77B71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769A86F3229E79CE00F77B71 /* SponsoredBy.swift in Sources */,
+				769A86F8229E79CE00F77B71 /* JSONSchemaSupport.swift in Sources */,
 				769A86AD229D68AF00F77B71 /* SecondViewController.swift in Sources */,
 				769A86A9229D68AF00F77B71 /* AppDelegate.swift in Sources */,
+				769A86D8229D7E5F00F77B71 /* UnsplashRequest.swift in Sources */,
 				769A86AB229D68AF00F77B71 /* FirstViewController.swift in Sources */,
+				769A86C0229D6F5500F77B71 /* HomeCollectionViewController.swift in Sources */,
+				769A86F9229E79CE00F77B71 /* UnsplashPhoto.swift in Sources */,
+				769A86FA229E79CE00F77B71 /* ProfileImage.swift in Sources */,
+				769A86F6229E79CE00F77B71 /* SponsoredByLinks.swift in Sources */,
+				769A86F7229E79CE00F77B71 /* Urls.swift in Sources */,
+				769A86BD229D69B400F77B71 /* Constants.swift in Sources */,
+				769A86F5229E79CE00F77B71 /* Sponsorship.swift in Sources */,
+				769A86F4229E79CE00F77B71 /* UnsplashPhotoLinks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Discover-Photo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +410,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Discover-Photo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
