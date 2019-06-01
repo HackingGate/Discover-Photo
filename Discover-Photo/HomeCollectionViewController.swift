@@ -12,6 +12,9 @@ import AlamofireImage
 
 class HomeCollectionViewController: BasicCollectionViewController {
     
+    /// Search bar.
+    private var searchBar = UISearchBar()
+    
     /// Search controller to help us with filtering.
     private var searchController: UISearchController!
     
@@ -47,9 +50,28 @@ class HomeCollectionViewController: BasicCollectionViewController {
     
     func fetchNextItems() {
         print("Fetching page \(nextPage)")
-        Alamofire.request(UnsplashRequest.Router.photos(page: nextPage, perPage: UnsplashRequest.Router.perPage)).responseUnsplashPhotos { response in
+        let request = UnsplashRequest.Router.photos(page: nextPage,
+                                                    perPage: UnsplashRequest.Router.perPage)
+        Alamofire.request(request).responseUnsplashPhotos { response in
             if let unsplashPhotos = response.result.value {
                 self.photos += unsplashPhotos
+                self.reloadData()
+            } else if let error = response.error {
+                print("error -> \(error)")
+            }
+        }
+    }
+    
+    func fetchNextItems(query: String) {
+        print("Fetching page \(nextPage) with query: \(query)")
+        let request = UnsplashRequest.Router.searchPhotos(query: query,
+                                                          page: nextPage,
+                                                          perPage: UnsplashRequest.Router.perPage)
+        Alamofire.request(request).responseUnsplashSearch { response in
+            if let unsplashSearch = response.result.value {
+                
+                self.photos += unsplashSearch.results
+                self.reloadData()
             } else if let error = response.error {
                 print("error -> \(error)")
             }
@@ -59,6 +81,12 @@ class HomeCollectionViewController: BasicCollectionViewController {
     // MARK: - Search
     
     private func _setupSearch() {
+        searchBar.delegate = self
+        // Place the search bar in the navigation bar.
+        navigationItem.titleView = searchBar
+    }
+    
+    private func _setupSearchController() {
         guard let layout = collectionViewLayout as? WaterfallLayout else { return }
         layout.delegate = self
         layout.numberOfColumns = 2
@@ -139,7 +167,11 @@ extension HomeCollectionViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        searchBar.resignFirstResponder()
+        if let searchText = searchBar.text, searchText.count > 0 {
+            photos = UnsplashPhotos()
+            fetchNextItems(query: searchText)
+        }
     }
     
 }
