@@ -21,7 +21,6 @@ class BasicCollectionViewController: UICollectionViewController {
             } else {
                 print("not change nextPage \(nextPage)")
             }
-            reloadData()
         }
     }
     
