@@ -68,9 +68,10 @@ class BaseCollectionViewController: UICollectionViewController {
     func configureCell(_ cell: UICollectionViewCell, photo: UnsplashPhoto, indexPath: IndexPath) {
         if let photoCell = cell as? PhotoCollectionViewCell {
             
-            Alamofire.request(photo.urls.small).responseImage { response in
+            Alamofire.request(photo.urls.thumb).responseImage { response in
                 if let image = response.result.value {
-                    photoCell.photoView.image = image
+                    let roundedImage = image.af_imageScaled(to: photoCell.photoView.bounds.size).af_imageRounded(withCornerRadius: 8)
+                    photoCell.photoView.image = roundedImage
                 }
             }
             
@@ -90,12 +91,9 @@ class BaseCollectionViewController: UICollectionViewController {
 
 extension BaseCollectionViewController: WaterfallLayoutDelegate {
     
-    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
+    func collectionView(collectionView: UICollectionView, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         let photo = photos[indexPath.item]
-        let photoRatio = CGFloat(photo.height) / CGFloat(photo.width)
-        let cellWidth = collectionView.bounds.width / CGFloat(columnCount)
-        let height = photoRatio * cellWidth
-        return height
+        return CGSize(width: CGFloat(photo.width), height: CGFloat(photo.height))
     }
     
 }
