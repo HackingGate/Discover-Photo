@@ -56,7 +56,12 @@ class WaterfallLayout: UICollectionViewLayout {
             attributesCache.append(attributes)
             contentHeight = max(contentHeight, frame.maxY)
             yOffsets[column] = yOffsets[column] + itemHeight
-            column = column >= (numberOfColumns - 1) ? 0 : column+1
+            // Put new cell into shortest column
+            if let min = yOffsets.min() {
+                column = yOffsets.firstIndex(of: min) ?? 0
+            } else {
+                column = 0
+            }
         }
     }
     
