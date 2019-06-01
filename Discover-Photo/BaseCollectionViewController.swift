@@ -24,16 +24,43 @@ class BaseCollectionViewController: UICollectionViewController {
         }
     }
     
+    var columnCount: Int {
+        get {
+            if let layout = collectionViewLayout as? WaterfallLayout {
+                return layout.numberOfColumns
+            } else {
+                return 1
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let layout = collectionViewLayout as? WaterfallLayout {
-//            layout.delegate = self
-//            layout.numberOfColumns = 2
-//        } else {
-//            print("Not WaterfallLayout")
-//        }
+        let center = NotificationCenter.default
+        center.addObserver(self,
+                           selector: #selector(didChangeOrientationHandler),
+                           name: UIApplication.didChangeStatusBarOrientationNotification,
+                           object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        updateLayout()
+    }
+    
+    @objc func didChangeOrientationHandler() {
+        updateLayout()
+    }
+    
+    func updateLayout() {
+        if let layout = collectionViewLayout as? WaterfallLayout {
+            layout.delegate = self
+            layout.numberOfColumns = 2
+        } else {
+            print("Not WaterfallLayout")
+        }
     }
     
     // MARK: - Configuration
@@ -66,7 +93,7 @@ extension BaseCollectionViewController: WaterfallLayoutDelegate {
     func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
         let photo = photos[indexPath.item]
         let photoRatio = CGFloat(photo.height) / CGFloat(photo.width)
-        let cellWidth = collectionView.bounds.width / 2
+        let cellWidth = collectionView.bounds.width / CGFloat(columnCount)
         let height = photoRatio * cellWidth
         return height
     }

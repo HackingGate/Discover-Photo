@@ -25,13 +25,6 @@ class HomeCollectionViewController: BaseCollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let layout = collectionViewLayout as? WaterfallLayout {
-            layout.delegate = self
-            layout.numberOfColumns = 2
-        } else {
-            print("Not WaterfallLayout")
-        }
-        
         refresh()
     }
     
