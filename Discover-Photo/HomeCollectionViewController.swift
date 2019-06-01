@@ -10,23 +10,23 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class HomeCollectionViewController: UICollectionViewController {
+class HomeCollectionViewController: BasicCollectionViewController {
     
-    var nextPage = 1
-    var photos = UnsplashPhotos() {
-        didSet {
-            if photos.count % UnsplashRequest.Router.perPage == 0 {
-                nextPage = photos.count / UnsplashRequest.Router.perPage + 1
-                print("old \(oldValue.count) new \(photos.count)  new nextPage \(nextPage)")
-            } else {
-                print("not change nextPage \(nextPage)")
-            }
-            reloadData()
-        }
-    }
+    /// Search controller to help us with filtering.
+    private var searchController: UISearchController!
+    
+    /// Secondary search results collection view.
+    private var resultsCollectionController: BasicCollectionViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _setupSearch()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         if let layout = collectionViewLayout as? WaterfallLayout {
             layout.delegate = self
@@ -34,10 +34,6 @@ class HomeCollectionViewController: UICollectionViewController {
         } else {
             print("Not WaterfallLayout")
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         refresh()
     }
@@ -60,10 +56,31 @@ class HomeCollectionViewController: UICollectionViewController {
         }
     }
     
-    func reloadData() {
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+    // MARK: - Search
+    
+    private func _setupSearch() {
+        guard let layout = collectionViewLayout as? WaterfallLayout else { return }
+        layout.delegate = self
+        layout.numberOfColumns = 2
+        
+        resultsCollectionController = BasicCollectionViewController(collectionViewLayout: layout)
+        
+        resultsCollectionController.collectionView.delegate = self
+        
+        searchController = UISearchController(searchResultsController: resultsCollectionController)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.autocapitalizationType = .none
+        
+        // For iOS 11 and later, place the search bar in the navigation bar.
+        navigationItem.searchController = searchController
+        
+        // Make the search bar always visible.
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        searchController.delegate = self
+        searchController.dimsBackgroundDuringPresentation = false // The default is true.
+        searchController.searchBar.delegate = self // Monitor when the search button is tapped.
+        
     }
     
 }
@@ -84,29 +101,9 @@ extension HomeCollectionViewController {
         
         let photo = photos[indexPath.item]
         
-        if let photoCell = cell as? PhotoCollectionViewCell {
-            
-            Alamofire.request(photo.urls.small).responseImage { response in
-                if let image = response.result.value {
-                    photoCell.photoView.image = image
-                }
-            }
-            
-            photoCell.photoLabel.text = String(indexPath.item)
-        }
+        configureCell(cell, photo: photo, indexPath: indexPath)
         
         return cell
-    }
-}
-
-extension HomeCollectionViewController: WaterfallLayoutDelegate {
-    
-    func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
-        let photo = photos[indexPath.item]
-        let photoRatio = CGFloat(photo.height) / CGFloat(photo.width)
-        let cellWidth = collectionView.bounds.width / 2
-        let height = photoRatio * cellWidth
-        return height
     }
     
 }
@@ -122,6 +119,55 @@ extension HomeCollectionViewController {
         } else {
             print("indexPath.item == \(indexPath.item), photos.count == \(photos.count), not adding")
         }
+    }
+    
+}
+
+// MARK: - UISearchBarDelegate
+extension HomeCollectionViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+    
+}
+
+extension HomeCollectionViewController: UISearchControllerDelegate {
+    
+}
+
+// MARK: - UISearchResultsUpdating
+
+extension HomeCollectionViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if let searchText = searchController.searchBar.text, searchText.count > 0 {
+            let request = UnsplashRequest.Router.searchPhotos(query: searchText,
+                                                              page: 1,
+                                                              perPage: UnsplashRequest.Router.perPage)
+            Alamofire.request(request).responseUnsplashSearch { response in
+                if let unsplashSearch = response.result.value {
+                    
+                    self.resultsCollectionController.photos = unsplashSearch.results
+                } else if let error = response.error {
+                    print("error -> \(error)")
+                }
+            }
+        }
+        
     }
     
 }

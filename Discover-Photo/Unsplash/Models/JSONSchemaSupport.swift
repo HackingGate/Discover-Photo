@@ -45,4 +45,9 @@ extension DataRequest {
     func responseUnsplashPhotos(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<UnsplashPhotos>) -> Void) -> Self {
         return responseDecodable(queue: queue, completionHandler: completionHandler)
     }
+
+    @discardableResult
+    func responseUnsplashSearch(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<UnsplashSearch>) -> Void) -> Self {
+        return responseDecodable(queue: queue, completionHandler: completionHandler)
+    }
 }

@@ -29,6 +29,7 @@ struct UnsplashPhoto: Codable {
     let likedByUser: Bool
     let user: SponsoredBy
     let sponsorship: Sponsorship?
+    let tags: [Tag]?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -42,6 +43,6 @@ struct UnsplashPhoto: Codable {
         case sponsoredImpressionsID = "sponsored_impressions_id"
         case likes
         case likedByUser = "liked_by_user"
-        case user, sponsorship
+        case user, sponsorship, tags
     }
 }
