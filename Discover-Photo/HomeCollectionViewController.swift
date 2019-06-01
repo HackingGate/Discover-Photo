@@ -15,12 +15,6 @@ class HomeCollectionViewController: BasicCollectionViewController {
     /// Search bar.
     private var searchBar = UISearchBar()
     
-    /// Search controller to help us with filtering.
-    private var searchController: UISearchController!
-    
-    /// Secondary search results collection view.
-    private var resultsCollectionController: BasicCollectionViewController!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,31 +80,6 @@ class HomeCollectionViewController: BasicCollectionViewController {
         navigationItem.titleView = searchBar
     }
     
-    private func _setupSearchController() {
-        guard let layout = collectionViewLayout as? WaterfallLayout else { return }
-        layout.delegate = self
-        layout.numberOfColumns = 2
-        
-        resultsCollectionController = BasicCollectionViewController(collectionViewLayout: layout)
-        
-        resultsCollectionController.collectionView.delegate = self
-        
-        searchController = UISearchController(searchResultsController: resultsCollectionController)
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.autocapitalizationType = .none
-        
-        // For iOS 11 and later, place the search bar in the navigation bar.
-        navigationItem.searchController = searchController
-        
-        // Make the search bar always visible.
-        navigationItem.hidesSearchBarWhenScrolling = false
-        
-        searchController.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false // The default is true.
-        searchController.searchBar.delegate = self // Monitor when the search button is tapped.
-        
-    }
-    
 }
 
 // MARK: UICollectionViewDataSource
@@ -172,34 +141,6 @@ extension HomeCollectionViewController: UISearchBarDelegate {
             photos = UnsplashPhotos()
             fetchNextItems(query: searchText)
         }
-    }
-    
-}
-
-extension HomeCollectionViewController: UISearchControllerDelegate {
-    
-}
-
-// MARK: - UISearchResultsUpdating
-
-extension HomeCollectionViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        if let searchText = searchController.searchBar.text, searchText.count > 0 {
-            let request = UnsplashRequest.Router.searchPhotos(query: searchText,
-                                                              page: 1,
-                                                              perPage: UnsplashRequest.Router.perPage)
-            Alamofire.request(request).responseUnsplashSearch { response in
-                if let unsplashSearch = response.result.value {
-                    
-                    self.resultsCollectionController.photos = unsplashSearch.results
-                } else if let error = response.error {
-                    print("error -> \(error)")
-                }
-            }
-        }
-        
     }
     
 }
