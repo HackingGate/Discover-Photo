@@ -20,7 +20,7 @@
 		769A86BD229D69B400F77B71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86BC229D69B400F77B71 /* Constants.swift */; };
 		769A86C0229D6F5500F77B71 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */; };
 		769A86D8229D7E5F00F77B71 /* UnsplashRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86D7229D7E5F00F77B71 /* UnsplashRequest.swift */; };
-		76D306AD22A20893008B9D5D /* BasicCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D306AC22A20893008B9D5D /* BasicCollectionViewController.swift */; };
+		76D306AD22A20893008B9D5D /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D306AC22A20893008B9D5D /* BaseCollectionViewController.swift */; };
 		76D3071E22A21E23008B9D5D /* UnsplashPhotoLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3071422A21E23008B9D5D /* UnsplashPhotoLinks.swift */; };
 		76D3071F22A21E23008B9D5D /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3071522A21E23008B9D5D /* UnsplashPhoto.swift */; };
 		76D3072022A21E23008B9D5D /* SponsoredByLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D3071622A21E23008B9D5D /* SponsoredByLinks.swift */; };
@@ -49,7 +49,7 @@
 		769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		769A86C5229D73AB00F77B71 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		769A86D7229D7E5F00F77B71 /* UnsplashRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRequest.swift; sourceTree = "<group>"; };
-		76D306AC22A20893008B9D5D /* BasicCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCollectionViewController.swift; sourceTree = "<group>"; };
+		76D306AC22A20893008B9D5D /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		76D3071422A21E23008B9D5D /* UnsplashPhotoLinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoLinks.swift; sourceTree = "<group>"; };
 		76D3071522A21E23008B9D5D /* UnsplashPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
 		76D3071622A21E23008B9D5D /* SponsoredByLinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsoredByLinks.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 				769A86B3229D68B100F77B71 /* LaunchScreen.storyboard */,
 				769A86B6229D68B100F77B71 /* Info.plist */,
 				769A86BC229D69B400F77B71 /* Constants.swift */,
-				76D306AC22A20893008B9D5D /* BasicCollectionViewController.swift */,
+				76D306AC22A20893008B9D5D /* BaseCollectionViewController.swift */,
 				769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */,
 				766CE951229EB69200E56BA4 /* Views */,
 				769A86CC229D79DF00F77B71 /* Unsplash */,
@@ -271,7 +271,7 @@
 				769A86AB229D68AF00F77B71 /* FirstViewController.swift in Sources */,
 				76D3072022A21E23008B9D5D /* SponsoredByLinks.swift in Sources */,
 				769A86C0229D6F5500F77B71 /* HomeCollectionViewController.swift in Sources */,
-				76D306AD22A20893008B9D5D /* BasicCollectionViewController.swift in Sources */,
+				76D306AD22A20893008B9D5D /* BaseCollectionViewController.swift in Sources */,
 				76D3072222A21E23008B9D5D /* Tag.swift in Sources */,
 				766CE955229EC4A100E56BA4 /* PhotoCollectionViewCell.swift in Sources */,
 				76D3072622A21E24008B9D5D /* ProfileImage.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class HomeCollectionViewController: BasicCollectionViewController {
+class HomeCollectionViewController: BaseCollectionViewController {
     
     /// Search bar.
     private var searchBar = UISearchBar()

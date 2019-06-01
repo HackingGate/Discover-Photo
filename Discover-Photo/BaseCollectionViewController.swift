@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class BasicCollectionViewController: UICollectionViewController {
+class BaseCollectionViewController: UICollectionViewController {
 
     var nextPage = 1
     var photos = UnsplashPhotos() {
@@ -61,7 +61,7 @@ class BasicCollectionViewController: UICollectionViewController {
     
 }
 
-extension BasicCollectionViewController: WaterfallLayoutDelegate {
+extension BaseCollectionViewController: WaterfallLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, heightForItemAtIndexPath indexPath: IndexPath) -> CGFloat {
         let photo = photos[indexPath.item]
