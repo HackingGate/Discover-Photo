@@ -35,6 +35,10 @@ class WaterfallLayout: UICollectionViewLayout {
     }
     
     override func prepare() {
+        super.prepare()
+        
+        reset()
+        
         let columnWidth = collectionViewWidth / CGFloat(numberOfColumns)
         var xOffsets = [CGFloat]()
         for column in 0..<numberOfColumns {
@@ -80,6 +84,11 @@ class WaterfallLayout: UICollectionViewLayout {
                 column = 0
             }
         }
+    }
+    
+    private func reset() {
+        attributesCache.removeAll()
+        contentHeight = 0
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
