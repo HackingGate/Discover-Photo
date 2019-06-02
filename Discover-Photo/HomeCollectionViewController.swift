@@ -19,7 +19,7 @@ class HomeCollectionViewController: BaseCollectionViewController {
         super.viewDidLoad()
         
         _setupSearch()
-        
+        _setupRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,8 +30,8 @@ class HomeCollectionViewController: BaseCollectionViewController {
     
     // MARK: - Data
     
-    func refresh() {
-        guard photos.isEmpty else { return }
+    @objc func refresh() {
+        photos.removeAll()
         fetchNextItems()
     }
     
@@ -73,6 +73,14 @@ class HomeCollectionViewController: BaseCollectionViewController {
         navigationItem.titleView = searchBar
     }
     
+    // MARK: - Refresh Control
+    
+    private func _setupRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
 }
 
 // MARK: UICollectionViewDataSource
@@ -89,9 +97,12 @@ extension HomeCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reuseIdentifier, for: indexPath)
         
-        let photo = photos[indexPath.item]
-        
-        configureCell(cell, photo: photo, indexPath: indexPath)
+        if photos.count > indexPath.item {
+            let photo = photos[indexPath.item]
+            configureCell(cell, photo: photo, indexPath: indexPath)
+        } else {
+            print("warning: array photos no \(indexPath.item)")
+        }
         
         return cell
     }

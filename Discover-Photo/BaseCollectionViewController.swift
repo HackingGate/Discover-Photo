@@ -84,6 +84,7 @@ class BaseCollectionViewController: UICollectionViewController {
     func reloadData() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
+            self.collectionView.refreshControl?.endRefreshing()
         }
     }
     
