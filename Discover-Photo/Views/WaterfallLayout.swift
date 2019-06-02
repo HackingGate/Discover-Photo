@@ -18,7 +18,7 @@ class WaterfallLayout: UICollectionViewLayout {
     
     var delegate: WaterfallLayoutDelegate!
     var numberOfColumns = 1
-    var spacing: CGFloat = 8
+    var spacing: CGFloat = 12
     
     private var attributesCache = [UICollectionViewLayoutAttributes]()
     private var contentHeight: CGFloat = 0
