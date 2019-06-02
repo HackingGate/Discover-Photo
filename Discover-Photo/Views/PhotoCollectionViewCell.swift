@@ -13,6 +13,5 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "PhotoCell"
 
     @IBOutlet weak var photoView: UIImageView!
-    @IBOutlet weak var photoLabel: UILabel!
     
 }

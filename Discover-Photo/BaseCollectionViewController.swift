@@ -78,7 +78,6 @@ class BaseCollectionViewController: UICollectionViewController {
                 }
             }
             
-            photoCell.photoLabel.text = String(indexPath.item)
         }
     }
     
