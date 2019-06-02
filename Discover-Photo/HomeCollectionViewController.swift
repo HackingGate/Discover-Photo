@@ -31,8 +31,18 @@ class HomeCollectionViewController: BaseCollectionViewController {
     // MARK: - Data
     
     @objc func refresh() {
-        photos.removeAll()
-        fetchNextItems()
+        fetch(clean: true, searchBar: searchBar)
+    }
+    
+    func fetch(clean: Bool, searchBar: UISearchBar?) {
+        if clean {
+            photos.removeAll()
+        }
+        if let searchText = searchBar?.text, searchText.count > 0 {
+            fetchNextItems(query: searchText)
+        } else {
+            fetchNextItems()
+        }
     }
     
     func fetchNextItems() {
@@ -69,6 +79,7 @@ class HomeCollectionViewController: BaseCollectionViewController {
     
     private func _setupSearch() {
         searchBar.delegate = self
+        searchBar.placeholder = "Search photos"
         // Place the search bar in the navigation bar.
         navigationItem.titleView = searchBar
     }
@@ -115,7 +126,7 @@ extension HomeCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let prefetchCount = 19
         if indexPath.item == photos.count - prefetchCount {
-            fetchNextItems()
+            fetch(clean: false, searchBar: searchBar)
             print("indexPath.item == \(indexPath.item), photos.count == \(photos.count), adding")
         } else {
             print("indexPath.item == \(indexPath.item), photos.count == \(photos.count), not adding")
@@ -131,20 +142,16 @@ extension HomeCollectionViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(true, animated: true)
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.text = nil
+        fetch(clean: true, searchBar: searchBar)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
-        if let searchText = searchBar.text, searchText.count > 0 {
-            photos = UnsplashPhotos()
-            fetchNextItems(query: searchText)
-        }
+        fetch(clean: true, searchBar: searchBar)
     }
     
 }
