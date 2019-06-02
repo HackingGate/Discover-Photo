@@ -95,8 +95,12 @@ class BaseCollectionViewController: UICollectionViewController {
 extension BaseCollectionViewController: WaterfallLayoutDelegate {
     
     func collectionView(collectionView: UICollectionView, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        let photo = photos[indexPath.item]
-        return CGSize(width: CGFloat(photo.width), height: CGFloat(photo.height))
+        if photos.count > indexPath.item {
+            let photo = photos[indexPath.item]
+            return CGSize(width: CGFloat(photo.width), height: CGFloat(photo.height))
+        } else {
+            return CGSize(width: 0, height: 0)
+        }
     }
     
 }

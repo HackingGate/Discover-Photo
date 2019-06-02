@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7647DD5F22A3F3CF00BA8633 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */; };
+		7647DD6322A40AFA00BA8633 /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647DD6222A40AFA00BA8633 /* PhotoTableViewController.swift */; };
 		766CE953229EBAAD00E56BA4 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */; };
 		766CE955229EC4A100E56BA4 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */; };
 		766CE956229EDECC00E56BA4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769A86C5229D73AB00F77B71 /* Alamofire.framework */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		7647DD6222A40AFA00BA8633 /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
 		766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		766CE957229EDFD200E56BA4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				769A86BC229D69B400F77B71 /* Constants.swift */,
 				76D306AC22A20893008B9D5D /* BaseCollectionViewController.swift */,
 				769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */,
+				7647DD6222A40AFA00BA8633 /* PhotoTableViewController.swift */,
 				7647DD5D22A3F3B700BA8633 /* Extensions */,
 				766CE951229EB69200E56BA4 /* Views */,
 				769A86CC229D79DF00F77B71 /* Unsplash */,
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D3071E22A21E23008B9D5D /* UnsplashPhotoLinks.swift in Sources */,
+				7647DD6322A40AFA00BA8633 /* PhotoTableViewController.swift in Sources */,
 				769A86AD229D68AF00F77B71 /* SecondViewController.swift in Sources */,
 				76D3072122A21E23008B9D5D /* JSONSchemaSupport.swift in Sources */,
 				76D3071F22A21E23008B9D5D /* UnsplashPhoto.swift in Sources */,

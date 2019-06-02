@@ -20,11 +20,6 @@ class HomeCollectionViewController: BaseCollectionViewController {
         
         _setupSearch()
         _setupRefreshControl()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         refresh()
     }
     
@@ -152,6 +147,21 @@ extension HomeCollectionViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         fetch(clean: true, searchBar: searchBar)
+    }
+    
+}
+
+extension HomeCollectionViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PhotoCellSelected" {
+            if let photoTableVC = segue.destination as? PhotoTableViewController,
+                let cell = sender as? PhotoCollectionViewCell,
+                let indexPath = self.collectionView.indexPath(for: cell) {
+                let unsplashPhoto = self.photos[indexPath.item]
+                photoTableVC.photo = unsplashPhoto
+            }
+        }
     }
     
 }
