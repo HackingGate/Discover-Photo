@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7647DD5F22A3F3CF00BA8633 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */; };
 		766CE953229EBAAD00E56BA4 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */; };
 		766CE955229EC4A100E56BA4 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */; };
 		766CE956229EDECC00E56BA4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769A86C5229D73AB00F77B71 /* Alamofire.framework */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		766CE957229EDFD200E56BA4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7647DD5D22A3F3B700BA8633 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		766CE951229EB69200E56BA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 				769A86BC229D69B400F77B71 /* Constants.swift */,
 				76D306AC22A20893008B9D5D /* BaseCollectionViewController.swift */,
 				769A86BF229D6F5500F77B71 /* HomeCollectionViewController.swift */,
+				7647DD5D22A3F3B700BA8633 /* Extensions */,
 				766CE951229EB69200E56BA4 /* Views */,
 				769A86CC229D79DF00F77B71 /* Unsplash */,
 			);
@@ -279,6 +290,7 @@
 				76D3072322A21E23008B9D5D /* UnsplashSearch.swift in Sources */,
 				769A86BD229D69B400F77B71 /* Constants.swift in Sources */,
 				766CE953229EBAAD00E56BA4 /* WaterfallLayout.swift in Sources */,
+				7647DD5F22A3F3CF00BA8633 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -446,6 +459,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

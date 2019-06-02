@@ -67,10 +67,13 @@ class BaseCollectionViewController: UICollectionViewController {
     
     func configureCell(_ cell: UICollectionViewCell, photo: UnsplashPhoto, indexPath: IndexPath) {
         if let photoCell = cell as? PhotoCollectionViewCell {
-            
+            photoCell.photoView.layer.cornerRadius = 8
+            if let hexColorString = photo.color {
+                photoCell.photoView.backgroundColor = UIColor.hexStringToUIColor(hex: hexColorString)
+            }
             Alamofire.request(photo.urls.thumb).responseImage { response in
                 if let image = response.result.value {
-                    let roundedImage = image.af_imageScaled(to: photoCell.photoView.bounds.size).af_imageRounded(withCornerRadius: 8)
+                    let roundedImage = image.af_imageScaled(to: photoCell.photoView.bounds.size).af_imageRounded(withCornerRadius: photoCell.photoView.layer.cornerRadius)
                     photoCell.photoView.image = roundedImage
                 }
             }
