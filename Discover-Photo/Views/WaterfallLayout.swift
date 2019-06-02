@@ -24,13 +24,13 @@ class WaterfallLayout: UICollectionViewLayout {
     private var contentHeight: CGFloat = 0
     private var collectionViewWidth: CGFloat {
         get {
-            return collectionView!.bounds.width
+            return collectionView!.bounds.width - collectionView!.safeAreaInsets.left - collectionView!.safeAreaInsets.right
         }
     }
     
     override var collectionViewContentSize: CGSize {
         get {
-            return CGSize(width: collectionViewWidth, height: contentHeight)
+            return CGSize(width: collectionView!.bounds.width, height: contentHeight)
         }
     }
     
@@ -55,22 +55,12 @@ class WaterfallLayout: UICollectionViewLayout {
             let indexPath = IndexPath(item: itemIndex, section: 0)
             let photoSize = delegate.collectionView(collectionView: collectionView!,
                                                    sizeForItemAtIndexPath: indexPath)
-            let photoRatio = photoSize.height / photoSize.width
-            let itemHeight = photoRatio * columnWidth
             
-            var frame = CGRect(x: xOffsets[column],
-                               y: yOffsets[column],
-                               width: columnWidth,
-                               height: itemHeight)
-            if column == 0 {
-                // left edge column
-                frame.origin.x = xOffsets[column] + spacing
-            } else {
-                frame.origin.x = xOffsets[column] + spacing / 2
-            }
-            frame.origin.y = yOffsets[column] + spacing
-            frame.size.width = (collectionViewWidth - spacing * CGFloat(numberOfColumns + 1)) / CGFloat(numberOfColumns)
-            frame.size.height = frame.size.width / photoSize.width * photoSize.height
+            let x = xOffsets[column] + collectionView!.safeAreaInsets.left + spacing / (column == 0 ? 1 : 2)
+            let y = yOffsets[column] + spacing
+            let width = (collectionViewWidth - spacing * CGFloat(numberOfColumns + 1)) / CGFloat(numberOfColumns)
+            let height = width / photoSize.width * photoSize.height
+            let frame = CGRect(x: x, y: y, width: width, height: height)
             
             let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             attributes.frame = frame
