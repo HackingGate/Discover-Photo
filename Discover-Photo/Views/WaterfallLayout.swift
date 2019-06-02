@@ -24,7 +24,11 @@ class WaterfallLayout: UICollectionViewLayout {
     private var contentHeight: CGFloat = 0
     private var collectionViewWidth: CGFloat {
         get {
-            return collectionView!.bounds.width - collectionView!.safeAreaInsets.left - collectionView!.safeAreaInsets.right
+            if #available(iOS 11.0, *) {
+                return collectionView!.bounds.width - collectionView!.safeAreaInsets.left - collectionView!.safeAreaInsets.right
+            } else {
+                return collectionView!.bounds.width
+            }
         }
     }
     
@@ -56,7 +60,10 @@ class WaterfallLayout: UICollectionViewLayout {
             let photoSize = delegate.collectionView(collectionView: collectionView!,
                                                    sizeForItemAtIndexPath: indexPath)
             
-            let x = xOffsets[column] + collectionView!.safeAreaInsets.left + spacing / (column == 0 ? 1 : 2)
+            var x = xOffsets[column] + spacing / (column == 0 ? 1 : 2)
+            if #available(iOS 11.0, *) {
+                x += collectionView!.safeAreaInsets.left
+            }
             let y = yOffsets[column] + spacing
             let width = (collectionViewWidth - spacing * CGFloat(numberOfColumns + 1)) / CGFloat(numberOfColumns)
             let height = width / photoSize.width * photoSize.height

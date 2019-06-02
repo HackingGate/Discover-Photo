@@ -16,7 +16,11 @@ class PhotoTableViewController: UITableViewController {
     
     private var tableViewWidth: CGFloat {
         get {
-            return tableView.bounds.width - tableView.safeAreaInsets.left - tableView.safeAreaInsets.right
+            if #available(iOS 11.0, *) {
+                return tableView.bounds.width - tableView.safeAreaInsets.left - tableView.safeAreaInsets.right
+            } else {
+               return tableView.bounds.width
+            }
         }
     }
     
