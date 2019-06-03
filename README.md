@@ -18,31 +18,31 @@ carthage build --platform iOS
 
 ## Problems
 
-Assume that a user wants find some specific photos.
+Assume that a user wants to find some specific photos.
 
 The user might want to search a keyword such as “food”, “lake”, “car”, etc.
 
-The user could tap on a photo, and might want see more related photos about that photo.
+The user could tap on a photo. And might want to see more related photos of that photo.
 
 ## Solves
 
-Put a search bar on top of the first view controller. Users can search keywords as soon as they want. The idea came from Pinterest.
+Put a search bar on top of the first view controller. Users can search for keywords as soon as they want. The idea came from Pinterest.
 
-Below the search bar put a waterfall layout collection view. Users can explore photos easily. Same spacing between cells. And rounded corner makes user comfortable.
+Below the search bar, there's a waterfall layout collection view. Users can explore photos easily. And rounded corners make users comfortable.
 
-When user scroll down. Collection view will load more contents.
+When the user scrolls down. Collection view will load more contents.
 
-Users can tap a photo and view it in larger size.
+Users can tap a photo and view it in a larger size.
 
 ## Things I'm considering to do in the future
 
 Add shadow to cells to make it feel 3D.
 
-Show detail information and related photos after tap on a cell. I think related photos are important. Because it is easy to find a user's preference.
+Show detail information and related photos after a tap on a cell. I think related photos are important. Because it is easy to find the user's preference.
 
-Add database and bookmark feature.
+Add database and bookmark features.
 
-Get user's preference from bookmarks.
+Get the user's preference from bookmarks.
 
 ## Screenshots
 
