@@ -35,16 +35,52 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="grz-db-XML">
                                             <rect key="frame" x="0.0" y="0.0" width="170" height="158"/>
                                         </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggg-gU-ceS">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="158"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pSQ-2M-qoV">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="158"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l1Y-34-hfQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="158"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Y8h-Y4-Okb">
+                                                            <rect key="frame" x="0.0" y="0.0" width="170" height="158"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        </view>
+                                                        <blurEffect style="dark"/>
+                                                    </visualEffectView>
+                                                </subviews>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="regular"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46t-Tz-puI">
+                                            <rect key="frame" x="4" y="133" width="162" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="ggg-gU-ceS" firstAttribute="leading" secondItem="vKA-za-gld" secondAttribute="leading" id="3sh-Qf-8j5"/>
                                     <constraint firstItem="grz-db-XML" firstAttribute="leading" secondItem="vKA-za-gld" secondAttribute="leading" id="ACt-Aj-yLu"/>
                                     <constraint firstItem="grz-db-XML" firstAttribute="top" secondItem="vKA-za-gld" secondAttribute="top" id="Juv-sn-AFe"/>
                                     <constraint firstAttribute="trailing" secondItem="grz-db-XML" secondAttribute="trailing" id="LaT-4O-pAs"/>
+                                    <constraint firstAttribute="bottom" secondItem="ggg-gU-ceS" secondAttribute="bottom" id="dRm-ho-Z2K"/>
+                                    <constraint firstItem="ggg-gU-ceS" firstAttribute="top" secondItem="vKA-za-gld" secondAttribute="top" id="gi8-Zd-w6b"/>
                                     <constraint firstAttribute="bottom" secondItem="grz-db-XML" secondAttribute="bottom" id="tNQ-iT-JRm"/>
+                                    <constraint firstAttribute="bottom" secondItem="46t-Tz-puI" secondAttribute="bottom" constant="4" id="txH-ER-mxM"/>
+                                    <constraint firstAttribute="trailing" secondItem="46t-Tz-puI" secondAttribute="trailing" constant="4" id="uXf-ox-ZsD"/>
+                                    <constraint firstAttribute="trailing" secondItem="ggg-gU-ceS" secondAttribute="trailing" id="xVB-Wc-1yJ"/>
+                                    <constraint firstItem="46t-Tz-puI" firstAttribute="leading" secondItem="vKA-za-gld" secondAttribute="leading" constant="4" id="zxQ-BD-gYD"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="blurView" destination="ggg-gU-ceS" id="dxq-YQ-DSE"/>
                                     <outlet property="photoView" destination="grz-db-XML" id="ubH-nE-Nuc"/>
+                                    <outlet property="textLabel" destination="46t-Tz-puI" id="w5v-We-xjI"/>
                                     <segue destination="IRa-bY-ujd" kind="show" identifier="PhotoCellSelected" id="maB-7b-fUb"/>
                                 </connections>
                             </collectionViewCell>
