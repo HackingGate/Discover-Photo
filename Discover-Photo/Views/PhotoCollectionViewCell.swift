@@ -25,7 +25,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         }
         Alamofire.request(photo.urls.thumb).responseImage { response in
             if let image = response.result.value {
-                let roundedImage = image.af_imageScaled(to: self.photoView.bounds.size).af_imageRounded(withCornerRadius: cornerRadius)
+                let roundedImage = image.af_imageScaled(to: self.photoView.bounds.size)
                 let gradientLayer = CAGradientLayer()
                 gradientLayer.frame = self.blurView.bounds
                 gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
