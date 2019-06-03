@@ -36,6 +36,6 @@ Get user's preference from bookmarks.
 
 ## Screenshots
 
-![home.png](https://github.com/HackingGate/Discover-Photo/raw/master/screenshots/home.png)
+![home.png](screenshots/home.png)
 
-![search.png](https://github.com/HackingGate/Discover-Photo/raw/master/screenshots/search.png)
+![search.png](screenshots/search.png)
