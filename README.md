@@ -30,6 +30,8 @@ Put a search bar on top of the first view controller. Users can search for keywo
 
 Below the search bar, there's a waterfall layout collection view. Users can explore photos easily. And rounded corners make users comfortable.
 
+Every cell has a gradient blur to make the uploader's name clearly.
+
 When the user scrolls down. Collection view will load more contents.
 
 Users can tap a photo and view it in a larger size.
