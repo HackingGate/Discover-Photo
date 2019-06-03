@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7647DD5F22A3F3CF00BA8633 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */; };
 		7647DD6322A40AFA00BA8633 /* PhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7647DD6222A40AFA00BA8633 /* PhotoTableViewController.swift */; };
+		764B2C8022A4AA4800821F00 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 764B2C7F22A4AA4800821F00 /* README.md */; };
 		766CE953229EBAAD00E56BA4 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */; };
 		766CE955229EC4A100E56BA4 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */; };
 		766CE956229EDECC00E56BA4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769A86C5229D73AB00F77B71 /* Alamofire.framework */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		7647DD5E22A3F3CF00BA8633 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7647DD6222A40AFA00BA8633 /* PhotoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewController.swift; sourceTree = "<group>"; };
+		764B2C7F22A4AA4800821F00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		766CE952229EBAAD00E56BA4 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		766CE954229EC4A100E56BA4 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		766CE957229EDFD200E56BA4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		769A869C229D68AF00F77B71 = {
 			isa = PBXGroup;
 			children = (
+				764B2C7F22A4AA4800821F00 /* README.md */,
 				769A86A7229D68AF00F77B71 /* Discover-Photo */,
 				769A86A6229D68AF00F77B71 /* Products */,
 				769A86C2229D72C100F77B71 /* Frameworks */,
@@ -238,6 +241,7 @@
 			files = (
 				769A86B5229D68B100F77B71 /* LaunchScreen.storyboard in Resources */,
 				769A86B2229D68B100F77B71 /* Assets.xcassets in Resources */,
+				764B2C8022A4AA4800821F00 /* README.md in Resources */,
 				769A86B0229D68AF00F77B71 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
