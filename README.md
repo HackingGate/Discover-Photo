@@ -6,6 +6,16 @@ An iOS photo discovery app using [Unsplash API](https://unsplash.com/developers)
 - iOS 10.0 or later
 - Xcode 10.2
 
+## Build
+
+Install [carthage](https://github.com/Carthage/Carthage#installing-carthage)
+
+Run this command:
+
+```sh
+carthage build --platform iOS
+```
+
 ## Problems
 
 Assume that a user wants find some specific photos.
