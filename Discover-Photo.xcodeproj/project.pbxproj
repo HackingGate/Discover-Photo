@@ -15,7 +15,6 @@
 		766CE956229EDECC00E56BA4 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769A86C5229D73AB00F77B71 /* Alamofire.framework */; };
 		766CE958229EDFD200E56BA4 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766CE957229EDFD200E56BA4 /* AlamofireImage.framework */; };
 		769A86A9229D68AF00F77B71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86A8229D68AF00F77B71 /* AppDelegate.swift */; };
-		769A86AB229D68AF00F77B71 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86AA229D68AF00F77B71 /* FirstViewController.swift */; };
 		769A86AD229D68AF00F77B71 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769A86AC229D68AF00F77B71 /* SecondViewController.swift */; };
 		769A86B0229D68AF00F77B71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A86AE229D68AF00F77B71 /* Main.storyboard */; };
 		769A86B2229D68B100F77B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 769A86B1229D68B100F77B71 /* Assets.xcassets */; };
@@ -45,7 +44,6 @@
 		766CE957229EDFD200E56BA4 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		769A86A5229D68AF00F77B71 /* Discover-Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Discover-Photo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		769A86A8229D68AF00F77B71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		769A86AA229D68AF00F77B71 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		769A86AC229D68AF00F77B71 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		769A86AF229D68AF00F77B71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		769A86B1229D68B100F77B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				769A86A8229D68AF00F77B71 /* AppDelegate.swift */,
-				769A86AA229D68AF00F77B71 /* FirstViewController.swift */,
 				769A86AC229D68AF00F77B71 /* SecondViewController.swift */,
 				769A86AE229D68AF00F77B71 /* Main.storyboard */,
 				769A86B1229D68B100F77B71 /* Assets.xcassets */,
@@ -287,7 +284,6 @@
 				76D3072722A21E24008B9D5D /* Urls.swift in Sources */,
 				769A86A9229D68AF00F77B71 /* AppDelegate.swift in Sources */,
 				769A86D8229D7E5F00F77B71 /* UnsplashRequest.swift in Sources */,
-				769A86AB229D68AF00F77B71 /* FirstViewController.swift in Sources */,
 				76D3072022A21E23008B9D5D /* SponsoredByLinks.swift in Sources */,
 				769A86C0229D6F5500F77B71 /* HomeCollectionViewController.swift in Sources */,
 				76D306AD22A20893008B9D5D /* BaseCollectionViewController.swift in Sources */,

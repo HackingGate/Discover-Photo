@@ -22,8 +22,6 @@ struct Constants {
         static let accessKey = "2b3e40a2d929f902ba6b7e0e4956e83036edfe570c17a6647ca3a0cdc313c689"
         static let secretKey = "ade7b367a97d55c9e5db7594a21733e429fefdcaf791889725df47dedf46b517"
         
-//        static let photos = API.URLBase + "photos"
-//        static let search = API.URLBase + "search"
     }
     
 }
