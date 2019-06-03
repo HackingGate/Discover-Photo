@@ -1,5 +1,5 @@
 # Discover-Photo
-An iOS photo discovery app using Unsplash API
+An iOS photo discovery app using [Unsplash API](https://unsplash.com/developers)
 
 ## Requirements
 
